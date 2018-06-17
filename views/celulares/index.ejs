@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cadastro de celulares</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+      <h1>Celulares</h1>
+      <% if(celulares.length>0) { %>
+      <table class="list-table">
+        <thead>
+          <tr>
+            <th>Número do celular</th>
+            <th>Colaborador responsável</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <% for(var i=0; i<celulares.length;i++) { %>
+            <tr>
+              <td><a href="/celulares/show/<%= celulares[i]._id%>"><%= celulares[i].numero%></a></td>
+              <td><%= celulares[i].nome%></td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+      <% } else { %>
+        <div>Não há nenhum número cadastrado.</div>
+      <% } %>
+      <h3><a href="/celulares/create">Novo cadastro</a></h3>
+  </body>
+</html>

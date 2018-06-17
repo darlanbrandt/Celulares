@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Detalhes do cadastro</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+      <h1>Informações do celular</h1>
+      <table>
+        <tbody>
+          <tr>
+            <td>Número do celular</td>
+            <td>:</td>
+            <td><%= celular.numero %></td>
+          </tr>
+          <tr>
+            <td>Colaborador Responsável</td>
+            <td>:</td>
+            <td><%= celular.nome %></td>
+          </tr>
+          <tr>
+            <td>Plano de Voz Contratado</td>
+            <td>:</td>
+            <td><%= celular.planoVoz %></td>
+          </tr>
+          <tr>
+            <td>Plano de Dados Contratado</td>
+            <td>:</td>
+            <td><%= celular.planoDados %></td>
+          </tr>
+          <tr>
+            <td>Aparelho utilizado</td>
+            <td>:</td>
+            <td><%= celular.aparelho %></td>
+          </tr>
+          <tr>
+            <td>IMEI</td>
+            <td>:</td>
+            <td><%= celular.imei %></td>
+          </tr>
+        </tbody>
+      </table>
+      <h3><a href="/celulares/edit/<%= celular._id%>">Editar cadastro</a></h3>
+      <form action="/celulares/delete/<%= celular._id%>" method="post">
+        <button type="submit">Excluir cadastro</button>
+      </form>
+    </br>
+    <h3><a href="/celulares">Voltar</a></h3>
+  </body>
+</html>

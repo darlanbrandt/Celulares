@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cadastrar colaborador</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+      <h3><a href="/celulares">Lista de Celulares</a></h3>
+      <h1>Cadastrar novo celular</h1>
+      <form action="/celulares/save" method="post">
+        <table>
+          <tbody>
+            <tr>
+              <td>Número do celular</td>
+              <td><input type="text" name="numero" /></td>
+            </tr>
+            <tr>
+              <td>Colaborador responsável</td>
+              <td><input type="text" name="nome" /></td>
+            </tr>
+            <tr>
+              <td>Plano de Voz Contratado</td>
+              <td><input type="text" name="planoVoz" /></td>
+            </tr>
+            <tr>
+              <td>Plano de Dados Contratado</td>
+              <td><input type="text" name="planoDados" /></td>
+            </tr>
+            <tr>
+              <td>Aparelho utilizado</td>
+              <td><input type="text" name="aparelho" /></td>
+            </tr>
+            <tr>
+              <td>IMEI</td>
+              <td><input type="text" name="imei" /></td>
+            </tr>
+            <tr>
+              <td colspan="2"><button type="submit">Salvar cadastro</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+  </body>
+</html>
