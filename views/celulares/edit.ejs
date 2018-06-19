@@ -5,7 +5,6 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-      <h3><a href="/celulares">Lista de celulares</a></h3>
       <h1>Editar cadastro</h1>
       <form action="/celulares/update/<%= celular._id%>" method="post">
         <table>
@@ -39,6 +38,8 @@
             </tr>
           </tbody>
         </table>
+        <br>
+        <h3><a href="/celulares">Voltar</a></h3>
       </form>
   </body>
 </html>

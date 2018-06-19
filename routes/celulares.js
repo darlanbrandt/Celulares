@@ -1,40 +1,40 @@
 var express = require('express');
-var router = express.Router();
+var rota = express.Router();
 var celular = require("../controllers/CelularController.js");
 
-// Get all employees
-router.get('/', function(req, res) {
+// Retorna a lista
+rota.get('/', function(req, res) {
   celular.list(req, res);
 });
 
-// Get single celular by id
-router.get('/show/:id', function(req, res) {
+// Retorna um registro
+rota.get('/show/:id', function(req, res) {
   celular.show(req, res);
 });
 
-// Create celular
-router.get('/create', function(req, res) {
+// Cria o registro
+rota.get('/create', function(req, res) {
   celular.create(req, res);
 });
 
-// Save celular
-router.post('/save', function(req, res) {
+// Salva o registro
+rota.post('/save', function(req, res) {
   celular.save(req, res);
 });
 
-// Edit celular
-router.get('/edit/:id', function(req, res) {
+// Edita o registro
+rota.get('/edit/:id', function(req, res) {
   celular.edit(req, res);
 });
 
-// Edit update
-router.post('/update/:id', function(req, res) {
+// Atualiza o registro
+rota.post('/update/:id', function(req, res) {
   celular.update(req, res);
 });
 
-// Edit update
-router.post('/delete/:id', function(req, res, next) {
+// Exclui o registro
+rota.post('/delete/:id', function(req, res, next) {
   celular.delete(req, res);
 });
 
-module.exports = router;
+module.exports = rota;

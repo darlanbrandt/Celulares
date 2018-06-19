@@ -1,13 +1,9 @@
 var mongoose = require("mongoose");
 var Celular = require("../models/Celular");
-var moment = require('moment');
-exports.index = function(req, res) {
-    res.render('index', { moment: moment });
-}
 
 var celularController = {};
 
-// Show list of celulares
+// Lista de linhas cadastradas
 celularController.list = function(req, res) {
   Celular.find({}).exec(function (err, celulares) {
     if (err) {
@@ -19,7 +15,7 @@ celularController.list = function(req, res) {
   });
 };
 
-// Show celular by id
+// Exibe linha por id
 celularController.show = function(req, res) {
   Celular.findOne({_id: req.params.id}).exec(function (err, celular) {
     if (err) {
@@ -31,12 +27,12 @@ celularController.show = function(req, res) {
   });
 };
 
-// Create new celular
+// Gera a página para criação
 celularController.create = function(req, res) {
   res.render("../views/celulares/create");
 };
 
-// Save new celular
+// Salva o registro
 celularController.save = function(req, res) {
   var celular = new Celular(req.body);
 
@@ -51,7 +47,7 @@ celularController.save = function(req, res) {
   });
 };
 
-// Edit an celular
+// Edita o registro
 celularController.edit = function(req, res) {
   Celular.findOne({_id: req.params.id}).exec(function (err, celular) {
     if (err) {
@@ -63,7 +59,7 @@ celularController.edit = function(req, res) {
   });
 };
 
-// Update an celular
+// Atualiza o registro
 celularController.update = function(req, res) {
   Celular.findByIdAndUpdate(req.params.id, { $set: { numero: req.body.numero, nome: req.body.nome, planoVoz: req.body.planoVoz, planoDados: req.body.planoDados, aparelho: req.body.aparelho, imei: req.body.imei }}, { new: true }, function (err, celular) {
     if (err) {

@@ -1,9 +1,9 @@
 var express = require('express');
-var router = express.Router();
+var rota = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Cadastro de Celulares' });
+rota.get('/', function(req, res, next) {
+  res.render('index', { title: 'Linhas de celular corporativo' });
 });
 
-module.exports = router;
+module.exports = rota;
