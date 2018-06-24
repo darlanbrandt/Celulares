@@ -26,6 +26,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/celulares', celulares);
+app.use('/json', json);
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
