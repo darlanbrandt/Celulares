@@ -15,6 +15,18 @@ celularController.list = function(req, res) {
   });
 };
 
+// Lista de linhas cadastradas em JSON
+celularController.listJson = function(req, res) {
+  Celular.find({}).exec(function (err, celulares) {
+    if (err) {
+      console.log("Error:", err);
+    }
+    else {
+      res.json(celulares);
+    }
+  });
+};
+
 // Exibe linha por id
 celularController.show = function(req, res) {
   Celular.findOne({_id: req.params.id}).exec(function (err, celular) {
@@ -23,6 +35,18 @@ celularController.show = function(req, res) {
     }
     else {
       res.render("../views/celulares/show", {celular: celular});
+    }
+  });
+};
+
+// Retorna JSON linha por id
+celularController.showJson = function(req, res) {
+  Celular.findOne({_id: req.params.id}).exec(function (err, celular) {
+    if (err) {
+      console.log("Error:", err);
+    }
+    else {
+      res.json(celular);
     }
   });
 };
