@@ -13,6 +13,7 @@ mongoose.connect('mongodb://gustavovieira:ufsc2018!@den1.mongo1.gear.host:27001/
 
 var index = require('./routes/index');
 var celulares = require('./routes/celulares');
+var json = require('./routes/json');
 
 var app = express();
 
