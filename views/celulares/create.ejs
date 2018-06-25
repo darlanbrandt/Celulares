@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cadastrar colaborador</title>
+    <title>Cadastrar celular</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script type="text/javascript" src="/js/main.js"></script>
     <script type="text/javascript" src="/js/jquery.mask.js"></script>
@@ -22,7 +22,13 @@
             </tr>
             <tr>
               <td>Colaborador responsável</td>
-              <td><input type="text" name="nome" /></td>
+              <td>
+                  <select name="nome">
+                      <% for(var i=0; i<colaboradores.length;i++) { %>
+                          <option value="<%= colaboradores[i].nome%>"><%= colaboradores[i].nome%></option>
+                      <% } %>
+                  </select> 
+              </td>
             </tr>
             <tr>
               <td>Plano de Voz Contratado</td>

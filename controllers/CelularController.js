@@ -1,5 +1,7 @@
 var mongoose = require("mongoose");
 var Celular = require("../models/Celular");
+//require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
 var celularController = {};
 
@@ -53,7 +55,15 @@ celularController.showJson = function(req, res) {
 
 // Gera a página para criação
 celularController.create = function(req, res) {
-  res.render("../views/celulares/create");
+  console.error('>>> feching');
+  fetch("http://localhost:3000/json/list")
+    .then(result => result.json())
+    .then(result => {
+      res.render("../views/celulares/create", {colaboradores: result});
+      console.error('>>> result: ', result);
+    }).catch(err => {
+      console.error('>>> error: ', error);
+    });
 };
 
 // Salva o registro
@@ -63,7 +73,7 @@ celularController.save = function(req, res) {
   celular.save(function(err) {
     if(err) {
       console.log(err);
-      res.render("../views/celulares/create");
+      res.render("celulares/create");
     } else {
       console.log("Cadastro de celular efetuado com sucesso.");
       res.redirect("/celulares/show/"+celular._id);

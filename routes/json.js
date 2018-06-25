@@ -3,7 +3,7 @@ var router = express.Router();
 var celular = require("../controllers/CelularController.js");
 
 // Lista todos os colaboradores
-router.get('/', function(req, res) {
+router.get('/list', function(req, res) {
   celular.listJson(req, res);
 });
 
