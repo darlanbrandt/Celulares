@@ -56,7 +56,7 @@ celularController.showJson = function(req, res) {
 // Gera a página para criação
 celularController.create = function(req, res) {
   console.error('>>> feching');
-  fetch("http://localhost:3000/json/list")
+  fetch("https://lucasjeronimo.herokuapp.com/json/list")
     .then(result => result.json())
     .then(result => {
       res.render("../views/celulares/create", {colaboradores: result});
