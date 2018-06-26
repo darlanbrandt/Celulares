@@ -55,7 +55,6 @@ celularController.showJson = function(req, res) {
 
 // Gera a página para criação
 celularController.create = function(req, res) {
-  console.error('>>> feching');
   fetch("https://lucasjeronimo.herokuapp.com/json/list")
     .then(result => result.json())
     .then(result => {
@@ -83,14 +82,20 @@ celularController.save = function(req, res) {
 
 // Edita o registro
 celularController.edit = function(req, res) {
-  Celular.findOne({_id: req.params.id}).exec(function (err, celular) {
-    if (err) {
-      console.log("Error:", err);
-    }
-    else {
-      res.render("../views/celulares/edit", {celular: celular});
-    }
-  });
+  fetch("https://lucasjeronimo.herokuapp.com/json/list")
+    .then(result => result.json())
+    .then(result => {
+      Celular.findOne({_id: req.params.id}).exec(function (err, celular) {
+        if (err) {
+          console.log("Error:", err);
+        }
+        else {
+        res.render("../views/celulares/edit", {colaboradores: result, celular: celular});
+      }
+    }).catch(err => {
+      console.error('>>> error: ', error);
+    });
+});
 };
 
 // Atualiza o registro
