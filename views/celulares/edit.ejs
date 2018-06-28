@@ -30,7 +30,7 @@
             <a href="/celulares"><strong>Voltar</strong></a>
             <hr>          
             <div class="espacoLateral">
-                <form action="/celulares/update/<%= celular._id%>" method="post">
+                <form action="/celulares/update/<%= celular._id%>" method="post"  @submit="checkForm">
                 <div id="message">
                   <p v-if="errors.length">
                     <ul>
@@ -48,7 +48,8 @@
                     <tr>
                       <td id="nomeCampo">Colaborador responsável</td>
                       <td id="campo">
-                          <select name="nome" v-model="nome" value="<%= celular.nome %>">
+                          <select name="nome" v-model="nome" value="<%= celular.nome %>"/>
+                          <option disabled value="" >Selecione um colaborador</option>
                           <% for(var i=0; i<colaboradores.length;i++) { %>
                           <% if(colaboradores[i].celularCorporativo) { %>
                           <option value="<%= colaboradores[i].nome%>"><%= colaboradores[i].nome%></option>
