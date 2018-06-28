@@ -42,7 +42,7 @@
                   <tbody>
                     <tr>
                       <td id="nomeCampo">Número do celular</td>
-                      <td id="campo"><input type="text" name="numero" value="<%= celular.numero %>" class="telefone" v-model="numero" /></td>
+                      <td id="campo"><input type="text" name="numero" value="<%= celular.numero %>" class="telefone" v-model="numero"/></td>
                     </tr>
                     
                     <tr>
@@ -105,12 +105,12 @@ new Vue({
     errors: [],
     fixed: true,
     title: 'Cadastro de linhas de celular (INE5646)',
-    telefone: '',
-    nome: '',
-    planoVoz: '',
-    planoDados: '',
-    aparelho: '',
-    imei: ''
+    numero: '<%= celular.numero %>',
+    nome: '<%= celular.nome %>',
+    planoVoz: '<%= celular.planoVoz %>',
+    planoDados: '<%= celular.planoDados %>',
+    aparelho: '<%= celular.aparelho %>',
+    imei: '<%= celular.imei %>'
   },
   methods:{
     checkForm:function(e) {
